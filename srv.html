@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ru" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jetsify - Продажа комплектующих для ПК</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #121212;
+      color: #e0e0e0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    /* Плавные появления */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s forwards;
+    }
+    .fade-in.delay-1 {
+      animation-delay: 0.2s;
+    }
+    .fade-in.delay-2 {
+      animation-delay: 0.4s;
+    }
+    .fade-in.delay-3 {
+      animation-delay: 0.6s;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    /* Стили кнопок */
+    .btn-primary {
+      @apply bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 text-white font-semibold rounded-lg shadow-lg hover:brightness-110 transition;
+    }
+    /* Карточка товара */
+    .product-card {
+      background: #1e1e1e;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgb(255 0 145 / 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 25px rgb(255 0 145 / 0.7);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Шапка -->
+  <header class="flex justify-between items-center p-6 max-w-7xl mx-auto w-full sticky top-0 bg-[#121212]/90 backdrop-blur-sm z-50 shadow-lg">
+    <a href="#" class="text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent select-none">
+      Jetsify
+    </a>
+    <nav class="space-x-8 hidden md:flex text-lg font-medium text-gray-300">
+      <a href="#products" class="hover:text-purple-400 transition">Товары</a>
+      <a href="#about" class="hover:text-purple-400 transition">О нас</a>
+      <a href="#contact" class="hover:text-purple-400 transition">Контакты</a>
+    </nav>
+    <button aria-label="Корзина" class="relative group">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-gray-300 group-hover:text-pink-500 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2 9h14l-2-9M9 21h6" />
+      </svg>
+      <span class="absolute -top-2 -right-2 bg-pink-600 rounded-full px-2 text-xs font-semibold text-white">3</span>
+    </button>
+  </header>
+
+  <!-- Главный экран -->
+  <main class="flex-grow max-w-7xl mx-auto w-full px-6 pt-20 pb-12 flex flex-col md:flex-row items-center gap-12">
+    <div class="max-w-xl fade-in delay-1">
+      <h1 class="text-5xl font-extrabold mb-6 leading-tight bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
+        Jetsify — лучшее место для покупки комплектующих ПК
+      </h1>
+      <p class="text-gray-400 mb-8 text-lg">
+        Быстрая доставка, проверенное качество и выгодные цены на видеокарты, процессоры, ОЗУ и многое другое.
+      </p>
+      <a href="#products" class="btn-primary px-8 py-4 inline-block shadow-lg select-none">
+        Смотреть товары
+      </a>
+    </div>
+    <div class="w-full max-w-md fade-in delay-2">
+      <img src="https://images.unsplash.com/photo-1612832021141-c7d5eecebc9f?auto=format&fit=crop&w=600&q=80" alt="PC components" class="rounded-xl shadow-xl" />
+    </div>
+  </main>
+
+  <!-- Раздел Товары -->
+  <section id="products" class="max-w-7xl mx-auto w-full px-6 mb-20">
+    <h2 class="text-4xl font-bold mb-10 text-center bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent fade-in delay-2">
+      Популярные товары
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
+      <article class="product-card p-6 fade-in delay-3 flex flex-col select-none">
+        <img src="https://images.unsplash.com/photo-1584270354949-fc20f1610a66?auto=format&fit=crop&w=600&q=80" alt="Видеокарта NVIDIA RTX 4080" class="rounded-lg mb-6 object-contain h-48" />
+        <h3 class="text-xl font-semibold mb-2">Видеокарта NVIDIA RTX 4080</h3>
+        <p class="text-gray-400 flex-grow">
+          Мощная видеокарта для любых задач и игр в 4K с трассировкой лучей.
+        </p>
+        <div class="mt-4 flex items-center justify-between">
+          <span class="text-2xl font-bold text-pink-500">109 990 ₽</span>
+          <button class="btn-primary px-5 py-2 text-sm">В корзину</button>
+        </div>
+      </article>
+
+      <article class="product-card p-6 fade-in delay-3 flex flex-col select-none">
+        <img src="https://cdn.pixabay.com/photo/2017/08/30/01/02/processor-2695562_960_720.jpg" alt="Процессор AMD Ryzen 9 7900X" class="rounded-lg mb-6 object-contain h-48" />
+        <h3 class="text-xl font-semibold mb-2">Процессор AMD Ryzen 9 7900X</h3>
+        <p class="text-gray-400 flex-grow">
+          12 ядер и 24 потока — идеальный выбор для работы и игр.
+        </p>
+        <div class="mt-4 flex items-center justify-between">
+          <span class="text-2xl font-bold text-pink-500">49 990 ₽</span>
+          <button class="btn-primary px-5 py-2 text-sm">В корзину</button>
+        </div>
+      </article>
+
+      <article class="product-card p-6 fade-in delay-3 flex flex-col select-none">
+        <img src="https://images.unsplash.com/photo-1600185366711-7f81e8f71e09?auto=format&fit=crop&w=600&q=80" alt="Оперативная память Corsair" class="rounded-lg mb-6 object-contain h-48" />
+        <h3 class="text-xl font-semibold mb-2">Оперативная память Corsair Vengeance 32GB</h3>
+        <p class="text-gray-400 flex-grow">
+          DDR5 6000 MHz — высокая скорость для любых задач.
+        </p>
+        <div class="mt-4 flex items-center justify-between">
+          <span class="text-2xl font-bold text-pink-500">19 490 ₽</span>
+          <button class="btn-primary px-5 py-2 text-sm">В корзину</button>
+        </div>
+      </article>
+
+      <article class="product-card p-6 fade-in delay-3 flex flex-col select-none">
+        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=600&q=80" alt="Процессор Intel Core i9-12900K" class="rounded-lg mb-6 object-contain h-48" />
+        <h3 class="text-xl font-semibold mb-2">Процессор Intel Core i9-12900K</h3>
+        <p class="text-gray-400 flex-grow">
+          Высокопроизводительный процессор с 16 ядрами и 24 потоками.
+        </p>
+        <div class="mt-4 flex items-center justify-between">
+          <span class="text-2xl font-bold text-pink-500">59 990 ₽</span>
+          <button class="btn-primary px-5 py-2 text-sm">В корзину</button>
+        </div>
+      </article>
+
+      <article class="product-card p-6 fade-in delay-3 flex flex-col select-none">
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="SSD Samsung 1TB" class="rounded-lg mb-6 object-contain h-48" />
+        <h3 class="text-xl font-semibold mb-2">SSD Samsung 970 EVO Plus 1TB</h3>
+        <p class="text-gray-400 flex-grow">
+          Быстрый NVMe SSD с высокой скоростью чтения и записи.
+        </p>
+        <div class="mt-4 flex items-center justify-between">
+          <span class="text-2xl font-bold text-pink-500">11 990 ₽</span>
+          <button class="btn-primary px-5 py-2 text-sm">В корзину</button>
+        </div>
+      </article>
+
+      <article class="product-card p-6 fade-in delay-3 flex flex-col select-none">
+        <img src="https://images.unsplash.com/photo-1587502536263-39b9696d3d1f?auto=format&fit=crop&w=600&q=80" alt="Материнская плата MSI" class="rounded-lg mb-6 object-contain h-48" />
+        <h3 class="text-xl font-semibold mb-2">Материнская плата MSI MPG Z690</h3>
+        <p class="text-gray-400 flex-grow">
+          Современная плата с поддержкой PCIe 5.0 и DDR5.
+        </p>
+        <div class="mt-4 flex items-center justify-between">
+          <span class="text-2xl font-bold text-pink-500">24 990 ₽</span>
+          <button class="btn-primary px-5 py-2 text-sm">В корзину</button>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- О нас -->
+  <section id="about" class="bg-[#181818] py-20 px-6">
+    <div class="max-w-4xl mx-auto text-center fade-in delay-2">
+      <h2 class="text-4xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
+        О Jetsify
+      </h2>
+      <p class="text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto">
+        Jetsify — это сервис, который помогает собрать мощный и надежный ПК из качественных комплектующих. Мы гарантируем проверенное качество, быструю доставку и лучшие цены на рынке. Наши специалисты всегда готовы помочь с выбором и дать совет.
+      </p>
+    </div>
+  </section>
+
+  <!-- Контакты -->
+  <footer id="contact" class="max-w-7xl mx-auto w-full px-6 py-14 text-center border-t border-gray-700">
+    <h2 class="text-3xl font-semibold mb-6 text-pink-500 fade-in delay-2">
+      Связаться с нами
+    </h2>
+    <p class="text-gray-400 mb-6 fade-in delay-2">support@jetsify.ru | +7 (999) 123-45-67</p>
+    <div class="flex justify-center gap-8 text-gray-400 text-2xl fade-in delay-3">
+      <a href="#" aria-label="Telegram" class="hover:text-pink-500 transition">
+        <svg fill="currentColor" viewBox="0 0 24 24" width="28" height="28"><path d="M22.46 3c-.77.35-4.3 2-5.35 2.5-.17.07-.34.11-.52.11a.75.75 0 0 1-.72-.9c.06-.24 1.37-5.06 1.5-5.4a.75.75 0 0 0-1-.85C14.15-.5 7.92 3.66 5.5 6.85c-1.5 1.7-2.4 3.88-2.4 6.25 0 5.14 5.03 9.6 10.3 9.6 4.28 0 6.55-3.3 7.57-5.2a.75.75 0 0 0-.1-1.1c-.14-.11-3.36-2.4-4.5-3.12a.75.75 0 0 1-.12-1.04c.3-.37 1.5-1.8 1.74-2.1z"></path></svg>
+      </a>
+      <a href="#" aria-label="VK" class="hover:text-pink-500 transition">
+        <svg fill="currentColor" viewBox="0 0 24 24" width="28" height="28"><path d="M12 0C5.373 0 0 5.373 0 12c0 6.627 5.373 12 12 12 6.625 0 12-5.373 12-12 0-6.627-5.375-12-12-12zM17.268 16.704h-1.066c-.392 0-.466-.243-.695-.52-1.308-1.578-2.492-3.335-3.863-4.815-.187-.201-.253-.263-.253-.429 0-.044.017-.088.034-.13.133-.346.58-.42.854-.415.566.01.914.322 1.28.65.37.333.728.712 1.057 1.101.214.265.377.36.59.36h.667c.297 0 .46-.18.46-.533v-3.048c0-.324-.13-.474-.52-.474h-1.09c-.383 0-.497.196-.61.39l-1.1 2.34-2.12-4.183c-.177-.343-.313-.442-.56-.442H9.72c-.305 0-.458.182-.458.53v5.07c0 .315.134.486.486.486h1.01c.39 0 .505-.198.623-.408l.33-.652 1.956 3.63c.138.256.267.398.59.398h1.23c.31 0 .457-.177.457-.528v-1.665c0-.35-.177-.48-.44-.48z"></path></svg>
+      </a>
+      <a href="#" aria-label="Instagram" class="hover:text-pink-500 transition">
+        <svg fill="currentColor" viewBox="0 0 24 24" width="28" height="28"><path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm-5 2.25a4.75 4.75 0 1 1 0 9.5 4.75 4.75 0 0 1 0-9.5zM7 7c0-1.657 1.343-3 3-3s3 1.343 3 3-1.343 3-3 3-3-1.343-3-3z"/></svg>
+      </a>
+    </div>
+    <p class="text-gray-500 mt-10 text-sm select-none">© 2025 Jetsify. Все права защищены.</p>
+  </footer>
+
+  <script>
+    // Плавный скролл для якорных ссылок
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
